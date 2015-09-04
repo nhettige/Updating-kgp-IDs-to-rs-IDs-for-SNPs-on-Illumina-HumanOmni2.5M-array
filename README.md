@@ -30,33 +30,33 @@ awk '{print "chr"$1,$4-1,$4,$2}' yourdata.map > genomicCoordinates.txt
 
 Note: .bim and .map files provide genomic coordinates according to PLINK format.
 
-Step 2: Navigate to UCSC Table Browser
+**Step 2: Navigate to UCSC Table Browser**
 
 http://genome.ucsc.edu/cgi-bin/hgTables
 
-Step 3: Options selection
+**Step 3: Options selection**
 
 Original Genome: Human Original Assembly: Feb. 2009 (GRCh37/hg19) Group: Variation and Repeats Track: All SNPs(137) Table: snp137 Output format: selected fields from primary and related tables
 
 Note: Make sure your genomic coordinates are according to hg19.
 
-Step 4: Upload input file
+**Step 4: Upload input file**
 
 On the “region” line, click the “define regions” button. Upload “genomicCoordinates.txt” file generated in step 1 by clicking “Choose File” button. Then click the “submit” button.
 
 Note: There is a limit of 1,000 defined regions. To circumvent this you may choose to chunk your files according to chromosomal regions.
 
-Step 5: Select output format
+**Step 5: Select output format**
 
 On the “output format” line, select “selected fields from primary and related tables”.
 
-Step 6: Get output
+**Step 6: Get output**
 
 You can enter a filename on the “output file” line or leave it blank to see the results on the screen. Enter “output.txt” and click the “get output” button.
 
 In the new opened page “Select Fields from hg19.snp137”, check the “chrom”, “chromStart”, “chromEnd” and “name” checkboxes. Then click the “get output” button.
 
-Step 7: What to do with insertions/deletions?
+**Step 7: What to do with insertions/deletions?**
 
 It is possible for your output to contain multiple records for one search. For example:
 
@@ -74,7 +74,7 @@ awk '$3-$2==1{print}' output.txt > output2.txt
 
 Note: “output.txt” is the output in step 6.
 
-Step 8: Update IDs
+**Step 8: Update IDs**
 
 To obtain the updated rs IDs, you can use the following commands using linux:
 
