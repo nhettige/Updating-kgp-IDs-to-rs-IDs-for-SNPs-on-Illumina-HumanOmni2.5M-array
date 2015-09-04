@@ -2,7 +2,7 @@
 
 Adapted from: http://rstudio-pubs-static.s3.amazonaws.com/9686_5d78b74c4b9743cfb5ac63aba8d309b5.html
 
-Step 1: Create a file of genomic coordinates from your map/bim file
+**Step 1: Create a file of genomic coordinates from your map/bim file**
 
 You should first separate your genomic file according to chromosome. This can be done using the following command in PLINK:
 
@@ -84,7 +84,7 @@ sort -k1 output2.txt > output.sort.txt
 
 join genomicCoordinates.sort.txt output.sort.txt | awk '{if($2==$5 && $3==$6) print $4,$7}' > updateIDs.txt
 
-Step 9: Rearrange output for PLINK format
+**Step 9: Rearrange output for PLINK format**
 
 To rearrange the output file with the updated rs IDs so that they may be used for analyses using PLINK, use the following commands in linux:
 
