@@ -1,0 +1,23 @@
+module load PLINK/1.07
+
+plink --file yourdata --chr12 --make-bed --out yourdata_chr12
+
+awk '{print "chr"$1,$4-1,$4,$2}' gad122_chr12.bim > chr12Coordinates.txt
+
+# http://genome.ucsc.edu/cgi-bin/hgTables
+
+# Remove all first records in duplicate outputs 
+
+awk '$3-$2==1{print}' output.txt > output2.txt
+
+sort -k1 chr12Coordinates.txt > chr12Coordinates.sort.txt
+
+sort -k1 output2.txt > output.sort.txt
+
+join chr12Coordinates.sort.txt output.sort.txt | awk '{if($2==$5 && $3==$6) print $4,$7}' > updateIDs.txt
+
+# Rearrange for PLINK
+awk '{print $1 =12, $4, $3*0, $3-1}' updateIDs.txt > newdata.map
+
+# Update genomic coordinates directly in PLINK
+plink --file yourdata -–update-map updateIDs.txt –-update-name
