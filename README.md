@@ -1,4 +1,4 @@
-# Updating-kgp-IDs-to-rs-IDs-for-SNPs-on-Illumina-HumanOmni2.5M-array
+# Updating kgp-IDs to rs-IDs for SNPs on Illumina-HumanOmni2.5M array
 
 Adapted from: http://rstudio-pubs-static.s3.amazonaws.com/9686_5d78b74c4b9743cfb5ac63aba8d309b5.html
 
